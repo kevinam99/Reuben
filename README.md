@@ -1,5 +1,7 @@
 # Reuben
 
+I wanted to quickly get started with a new Flask project as a beginner. But I found setting the project manually was a waste of time. I don't want to go through the same thing every time I decide to start a new Flas project. So, I created Reuben.
+
 Reuben is a BaSH command line utility that helps you get started with your Flask project by just giving your project's name.
 
 ### Usage
@@ -13,8 +15,11 @@ Show your support by giving this repo a star!
 
 ![Star this repository](https://img.shields.io/github/stars/kevinam99/Reuben?style=social)
 
+
 ### Reach out to me on:
 1. [Twitter](https://www.twitter.com/kevin_codes)
 2. [Instagram](https://www.instagram.com/kevin.codes)
 3. Email <kevinam99@gmail.com>
 4. [LinkedIn](https://www.linkedin.com/in/kevin-a-mathew)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/kevinam99)
