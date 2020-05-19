@@ -78,4 +78,17 @@ BASE_HTML=$'
 '
 echo "$BASE_HTML" >> app/templates/base.html
 
+INDEX_HTML=$'
+{% extends "base.html" %}\n
+{% block title %}Home{% endblock %}\n
+{% block body %}\n
+<div class="jumbotron">\n
+  <h1>Flask Is Awesome</h1>\n
+  <p class="lead">And I\'m glad to be learning so much about it!</p>\n
+</div>\n
+{% endblock %}\n
+'
+echo "$INDEX_HTML" >> app/templates/index.html
+
+
 export FLASK_APP=run.py
