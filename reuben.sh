@@ -156,4 +156,4 @@ echo "Project $PROJECT_NAME is ready for you to start working!
 
 "
 echo "Utility developed by Kevin (https://www.github.com/kevinam99)"
-echo "Start this repo at https://github.com/kevinam99/"
+echo "Start this repo at https://github.com/kevinam99/Reuben"
