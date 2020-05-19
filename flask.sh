@@ -20,7 +20,7 @@ echo "Welcome to this utility. Let's set up your Flask project."
 
 PROJECT_NAME = "Some shiz"
 get_name $PROJECT_NAME
-echo $PROJECT_NAME
+echo Creating project \"$PROJECT_NAME\"
 
 
 
@@ -37,45 +37,50 @@ cd $PROJECT_NAME
 
 echo "Writing to requirements..."
 touch requirements.txt
-REQUIREMENTS = $'
-click>=6.6\n
-Flask>=0.11.1\n
-itsdangerous>=0.24\n
-Jinja2>=2.8\n
-MarkupSafe>=0.23\n
-Werkzeug>=0.11.11
-'
-echo "$REQUIREMENTS" > requirements.txt
-echo "Requirements done."
 
-mkdir $PROJECT_NAME/app
-mkdir $PROJECT_NAME/app/templates
+echo "click>=6.6
+Flask>=0.11.1
+itsdangerous>=0.24
+Jinja2>=2.8
+MarkupSafe>=0.23
+Werkzeug>=0.11.1" >> requirements.txt
+
+# printf $REQUIREMENTS >> requirements.txt
+
+echo "Requirements done."
+mkdir app
+mkdir app/templates
+cd ../
 
 touch $PROJECT_NAME/run.py $PROJECT_NAME/config.py
 cd $PROJECT_NAME/app
 touch __init__.py views.py
 # pwd == PROJECT_NAME/app
 
-cd ..
-CONFIG_PY = $'# Enable Flask\'s debugging features. Should be False in production \n DEBUG = True'
-echo "$CONFIG_PY" >> config.py
+cd ../
+
+echo "# Enable Flask\'s debugging features. Should be False in production
+DEBUG = True" >> config.py
+echo "config.py written..."
+
+# echo $CONFIG_PY >> config.py
 # pwd == PROJECT_NAME/
 
 
-INIT_PY = $'from flask import Flask\n
-
-# Initialize the app\n
+echo "from flask import Flask
+# Initialize the app
 app = Flask(__name__, instance_relative_config=True)
-\n
-# Load the views \n
-from app import views\n
 
-# Load the config file\n
-app.config.from_object(\'config\')'
+# Load the views 
+from app import views
 
-echo "$INIT_PY" >> app/__init__.py
+# Load the config file
+app.config.from_object('config')" >> app/__init__.py
+
+# echo "$INIT_PY" >> app/__init__.py
 
 cd app/templates
+pwd
 touch base.html index.html about.html
 
 BASE_HTML=$'
