@@ -49,12 +49,12 @@ Werkzeug>=0.11.1" >> requirements.txt
 
 echo "Requirements done."
 mkdir app
-mkdir app/templates
+mkdir app/templates app/static
 cd ../
 
 touch $PROJECT_NAME/run.py $PROJECT_NAME/config.py
 cd $PROJECT_NAME/app
-touch __init__.py views.py
+touch __init__.py views.py models.py
 # pwd == PROJECT_NAME/app
 
 cd ../
@@ -86,7 +86,7 @@ app.config.from_object('config')" >> app/__init__.py
 
 cd app/templates
 pwd
-touch ./base.html ./index.html ./about.html
+touch base.html index.html about.html
 
 
 echo " <!-- base.html -->
@@ -113,13 +113,13 @@ echo " <!-- base.html -->
     {% block body %} 
     {% endblock %}
     <footer class=\"footer\">
-        <p>© 2016 Your Name Here</p>
+        <p>&copy; 2020 <a href = \"https://www.github.com/kevinam99\">Kevin</a> </p>
     </footer>
     </div> <!-- /container -->
 </body>
 </html>
-" >> app/templates/base.html
-# echo "$BASE_HTML" >> app/templates/base.html
+" > base.html
+# echo "$BASE_HTML" >> base.html
 
 echo "{% extends \"base.html\" %}
 {% block title %}Home{% endblock %}
@@ -129,10 +129,10 @@ echo "{% extends \"base.html\" %}
 <p class=\"lead\">And I\'m glad to be learning so much about it!</p>
 </div>
 {% endblock %}
-" >> app/templates/index.html
+" > index.html
 
 echo "index.html created."
-# echo "$INDEX_HTML" >> app/templates/index.html
+# echo "$INDEX_HTML" >> index.html
 
 echo "{% extends \"base.html\" %}
 {% block title %}About{% endblock %}
@@ -142,11 +142,18 @@ echo "{% extends \"base.html\" %}
 <p class=\"lead\">You can learn more about PROJECT_NAME here.</p>
 </div>
 {% endblock %}
-" >> app/templates/about.html
+" > about.html
 
 echo "about.html created"
 
-# echo "$ABOUT_HTML" >> app/templates/about.html
+# echo "$ABOUT_HTML" >> about.html
 
+echo "Setting env variables. FLASK_APP=run.py and FLASK_ENV=development"
 export FLASK_APP=run.py
-export FLASK_ENV=DEVELOPMENT
+export FLASK_ENV=development
+
+echo "Project $PROJECT_NAME is ready for you to start working!
+
+"
+echo "Utility developed by Kevin (https://www.github.com/kevinam99)"
+echo "Start this repo at https://github.com/kevinam99/"
