@@ -9,6 +9,16 @@ Reuben is a BaSH command line utility that helps you get started with your Flask
 2. Run ``` chmod +x reuben.sh ``` to make it executable.
 3. Run ```./reuben.sh``` and follow the instructions!
 
+### Add Reuben to your PATH
+
+- Save the script as reuben (without the .sh extension) in some ~/bin.
+- Add ~/bin to your PATH, typing export PATH=$PATH:~/bin
+- If you need it permanently, add that last line in your ~/.bashrc. If you're using zsh, then add it to ~/.zshrc instead.
+- Then you can just run ```reuben``` and it will run anywhere
+
+Note that if you ```export``` the PATH variable in a specific window it won't update in other bash instances. See [this answer on SttackOverflow](https://stackoverflow.com/a/20054809)
+
+
 The project structure is inspired from this [Scotch.io article](https://scotch.io/tutorials/getting-started-with-flask-a-python-microframework).
 
 Show your support by giving this repo a star! 
