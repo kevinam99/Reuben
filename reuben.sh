@@ -16,7 +16,7 @@ get_name ()
     fi
 }
 
-echo "Welcome to this utility. Let's set up your Flask project."
+echo "Hey! I'm Reuben. I'll help you set up your Flask project."
 
 PROJECT_NAME = "Some shiz"
 get_name $PROJECT_NAME
