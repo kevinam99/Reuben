@@ -13,7 +13,15 @@ cd my-project
 
 echo "Writing to requirements..."
 touch requirements.txt
-pip freeze > requirements.txt
+REQUIREMENTS = $'
+click>=6.6\n
+Flask>=0.11.1\n
+itsdangerous>=0.24\n
+Jinja2>=2.8\n
+MarkupSafe>=0.23\n
+Werkzeug>=0.11.11
+'
+echo "$REQUIREMENTS" > requirements.txt
 echo "Requirements done."
 
 mkdir my-project/app
