@@ -26,7 +26,7 @@ echo Creating project \"$PROJECT_NAME\"
 
 
 echo "Downloading and installing Flask..."
-# pip install Flask
+pip install Flask
 echo "Flask has been installed."
 
 
