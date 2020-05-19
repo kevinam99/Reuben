@@ -7,7 +7,7 @@ Reuben is a BaSH command line utility that helps you get started with your Flask
 2. Run ``` chmod +x reuben.sh ``` to make it executable.
 3. Run ```./reuben.sh``` and follow the instructions!
 
-The project structure is inspired from this [article](https://scotch.io/tutorials/getting-started-with-flask-a-python-microframework).
+The project structure is inspired from this [Scotch.io article](https://scotch.io/tutorials/getting-started-with-flask-a-python-microframework).
 
 Show your support by giving this repo a star! 
 
