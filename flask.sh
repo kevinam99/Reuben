@@ -63,6 +63,11 @@ echo "# Enable Flask\'s debugging features. Should be False in production
 DEBUG = True" >> config.py
 echo "config.py written..."
 
+echo "from app import app
+
+if __name__ == '__main__':
+    app.run()" >> run.py
+
 # echo $CONFIG_PY >> config.py
 # pwd == PROJECT_NAME/
 
@@ -81,64 +86,67 @@ app.config.from_object('config')" >> app/__init__.py
 
 cd app/templates
 pwd
-touch base.html index.html about.html
+touch ./base.html ./index.html ./about.html
 
-BASE_HTML=$'
-<!DOCTYPE html>\n
-<html lang="en">\n
-<head>\n
-    <title>{% block title %}{% endblock %}</title>\n
-    <!-- Bootstrap core CSS -->\n
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">\n
-    <!-- Custom styles for this template -->\n
-    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet"> \n
-</head>\n
-<body>\n
-    <div class="container"> \n
-    <div class="header clearfix"> \n
-        <nav>\n
-        <ul class="nav nav-pills pull-right">\n
-            <li role="presentation"><a href="/">Home</a></li>\n
-            <li role="presentation"><a href="/about">About</a></li>\n
-            <li role="presentation"><a href="http://flask.pocoo.org" target="_blank">More About Flask</a></li>\n
-        </ul>\n
-        </nav>\n
-    </div>\n
-    {% block body %} \n
-    {% endblock %}\n
-    <footer class="footer">\n
-        <p>© 2016 Your Name Here</p>\n
-    </footer>\n
-    </div> <!-- /container -->\n
-</body>\n
-</html>\n
-'
-echo "$BASE_HTML" >> app/templates/base.html
 
-INDEX_HTML=$'
-{% extends "base.html" %}\n
-{% block title %}Home{% endblock %}\n
-{% block body %}\n
-<div class="jumbotron">\n
-<h1>Flask Is Awesome</h1>\n
-<p class="lead">And I\'m glad to be learning so much about it!</p>\n
-</div>\n
-{% endblock %}\n
-'
-echo "$INDEX_HTML" >> app/templates/index.html
+echo " <!-- base.html -->
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\">
+    <!-- Custom styles for this template -->
+    <link href=\"https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css\" rel=\"stylesheet\"> 
+</head>
+<body>
+    <div class=\"container\"> 
+    <div class=\"header clearfix\"> 
+        <nav>
+        <ul class=\"nav nav-pills pull-right\">
+            <li role=\"presentation\"><a href=\"/\">Home</a></li>
+            <li role=\"presentation\"><a href=\"/about\">About</a></li>
+            <li role=\"presentation\"><a href=\"http://flask.pocoo.org\" target=\"_blank\">More About Flask</a></li>
+        </ul>
+        </nav>
+    </div>
+    {% block body %} 
+    {% endblock %}
+    <footer class=\"footer\">
+        <p>© 2016 Your Name Here</p>
+    </footer>
+    </div> <!-- /container -->
+</body>
+</html>
+" >> app/templates/base.html
+# echo "$BASE_HTML" >> app/templates/base.html
 
-ABOUT_HTML=$'
-{% extends "base.html" %}\n
-{% block title %}About{% endblock %}\n
-{% block body %}\n
-<div class="jumbotron">\n
-<h1>The About Page</h1>\n
-<p class="lead">You can learn more about PROJECT_NAME here.</p>\n
-</div>\n
-{% endblock %}\n
-'
+echo "{% extends \"base.html\" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+<div class=\"jumbotron\">
+<h1>Flask Is Awesome</h1>
+<p class=\"lead\">And I\'m glad to be learning so much about it!</p>
+</div>
+{% endblock %}
+" >> app/templates/index.html
 
-echo "$ABOUT_HTML" >> app/templates/about.html
+echo "index.html created."
+# echo "$INDEX_HTML" >> app/templates/index.html
+
+echo "{% extends \"base.html\" %}
+{% block title %}About{% endblock %}
+{% block body %}
+<div class=\"jumbotron\">
+<h1>The About Page</h1>
+<p class=\"lead\">You can learn more about PROJECT_NAME here.</p>
+</div>
+{% endblock %}
+" >> app/templates/about.html
+
+echo "about.html created"
+
+# echo "$ABOUT_HTML" >> app/templates/about.html
 
 export FLASK_APP=run.py
 export FLASK_ENV=DEVELOPMENT
