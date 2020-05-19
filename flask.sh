@@ -39,6 +39,43 @@ app = Flask(__name__, instance_relative_config=True)
 from app import views\n
 
 # Load the config file\n
-app.config.from_object('config')'
+app.config.from_object(\'config\')'
 
 echo "$INIT_PY" >> app/__init__.py
+
+cd app/templates
+touch base.html index.html about.html
+
+BASE_HTML=$'
+<!DOCTYPE html>\n
+<html lang="en">\n
+  <head>\n
+    <title>{% block title %}{% endblock %}</title>\n
+    <!-- Bootstrap core CSS -->\n
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">\n
+    <!-- Custom styles for this template -->\n
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet"> \n
+  </head>\n
+  <body>\n
+    <div class="container"> \n
+      <div class="header clearfix"> \n
+        <nav>\n
+          <ul class="nav nav-pills pull-right">\n
+            <li role="presentation"><a href="/">Home</a></li>\n
+            <li role="presentation"><a href="/about">About</a></li>\n
+            <li role="presentation"><a href="http://flask.pocoo.org" target="_blank">More About Flask</a></li>\n
+          </ul>\n
+        </nav>\n
+      </div>\n
+      {% block body %} \n
+      {% endblock %}\n
+      <footer class="footer">\n
+        <p>© 2016 Your Name Here</p>\n
+      </footer>\n
+    </div> <!-- /container -->\n
+  </body>\n
+</html>\n
+'
+echo "$BASE_HTML" >> app/templates/base.html
+
+export FLASK_APP=run.py
