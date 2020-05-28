@@ -1,4 +1,7 @@
 # Reuben
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Star this repository](https://img.shields.io/github/stars/kevinam99/Reuben?style=social)
+
 
 I wanted to quickly get started with a new Flask project as a beginner. But I found setting the project manually was a waste of time. I don't want to go through the same thing every time I decide to start a new Flas project. So, I created Reuben.
 
